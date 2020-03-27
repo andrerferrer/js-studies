@@ -38,13 +38,30 @@ const uniqFromScratch = (array) => {
 }
 
 // These are ES6 beauties
+
+// Uniq with Set
 const uniqWithSet = array => Array.from(new Set(array));
+
+// Uniq with Set and spread syntax
 const uniqWithSetSexier = array => [...new Set(array)];
+
+// Uniq with reduce
+
+// Syntax for reduce in ES6
+// arr.reduce(callback( accumulator, currentValue[, index[, array]] )[, initialValue])
+
+const uniqWithReduce = (array) => {
+	return array.reduce((acc, cur) => {
+		if (acc.indexOf(cur) < 0) acc.push(cur)
+		return acc
+	}, [])
+}
 
 const text = "banana da terra banana da água"
 const array = text.split(" ")
 
-const allOfThemWork =   uniqWithSetSexier(array) && 
+const allOfThemWork =   uniqWithReduce(array) &&
+						uniqWithSetSexier(array) && 
 						uniqWithSet(array) && 
 						uniqFromScratch(array) && 
 						uniqWithHash(array) && 
