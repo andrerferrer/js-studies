@@ -6,7 +6,7 @@ const uniq = (array) => {
 };
 
 // Uniq with hashes
-const uniqPlus = (array) => {
+const uniqWithHash = (array) => {
   const hash = {};
   return array.filter((element) => {
     // return hash[element] ? false : (hash[element] = true);
@@ -47,7 +47,7 @@ const array = text.split(" ")
 const allOfThemWork =   uniqWithSetSexier(array) && 
 						uniqWithSet(array) && 
 						uniqFromScratch(array) && 
-						uniqPlus(array) && 
+						uniqWithHash(array) && 
 						uniq(array)
 
 console.log( allOfThemWork ? "they all work!" : "not all of them work" )
