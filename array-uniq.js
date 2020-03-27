@@ -25,7 +25,7 @@ const uniqFromScratch = (array) => {
 	let lastInputedPosition = 0
 	const seenItems = {}
 
-	for (i = 0; i < length; i++) {
+	for (let i = 0; i < length; i++) {
 		const item = array[i]
 		if (!seenItems[item]) {
 			result[lastInputedPosition] = item
@@ -41,6 +41,13 @@ const uniqFromScratch = (array) => {
 const uniqWithSet = array => Array.from(new Set(array));
 const uniqWithSetSexier = array => [...new Set(array)];
 
-text = "banana da terra banana da água"
-array = text.split(" ")
-console.log( uniqWithSetSexier(array) )
+const text = "banana da terra banana da água"
+const array = text.split(" ")
+
+const allOfThemWork =   uniqWithSetSexier(array) && 
+						uniqWithSet(array) && 
+						uniqFromScratch(array) && 
+						uniqPlus(array) && 
+						uniq(array)
+
+console.log( allOfThemWork ? "they all work!" : "not all of them work" )
